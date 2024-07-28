@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% block title %}
+  {{ block.super }}
+{% endblock title %}
+{% block content %}
+  <div class="container pt-50">
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">PS Bank</h1>
+        <hr>
+        <p class="lead text-muted">Made by you, for you.</p>
+        <p>
+          <a class="btn btn-primary btn-md"
+             href="{% url 'accounts:login' %}"
+             role="button">Log In</a>
+          <a class="btn btn-success btn-md"
+             href="{% url 'accounts:register' %}"
+             role="button">Create Account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

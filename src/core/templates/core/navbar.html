@@ -1,0 +1,43 @@
+<header role="banner">
+  <nav class="navbar navbar-expand-md">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">PS Bank</a>
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar"
+              aria-controls="navbar"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'transactions:deposit' %}">Deposit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'transactions:withdrawal' %}">Withdraw</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About Us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          {% if request.user.is_authenticated %}
+            <li class="nav-item cta-btn">
+              <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item cta-btn">
+              <a class="nav-link" href="{% url 'accounts:register' %}">Create Account</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
